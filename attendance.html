@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Management</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f4f6f9;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background: #1e1e2f;
+            position: fixed;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            margin: 5px;
+        }
+
+        .sidebar a:hover {
+            background: #4CAF50;
+        }
+
+        /* MAIN */
+        .main {
+            margin-left: 240px;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        /* FORM CARD */
+        .form-box {
+            background: white;
+            padding: 20px;
+            width: 50%;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        select, input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        /* TABLE */
+        table {
+            width: 80%;
+            margin: auto;
+            background: white;
+            border-collapse: collapse;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #4CAF50;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        .present {
+            color: green;
+            font-weight: bold;
+        }
+
+        .absent {
+            color: red;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <a href="/dashboard">Dashboard</a>
+    <a href="/students">Students</a>
+    <a href="/attendance">Attendance</a>
+    <a href="/marks">Marks</a>
+    <a href="/report">Report</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <h1 style="text-align:center;">Attendance Entry</h1>
+
+    <!-- FORM -->
+    <div class="form-box">
+
+        <form action="/save_attendance" method="POST">
+
+            <select name="student_name">
+                {% for s in students %}
+                <option value="{{ s[1] }}">{{ s[1] }}</option>
+                {% endfor %}
+            </select>
+
+            <input type="date" name="date" required>
+
+            <select name="status">
+                <option value="Present">Present</option>
+                <option value="Absent">Absent</option>
+            </select>
+
+            <button type="submit">Save Attendance</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

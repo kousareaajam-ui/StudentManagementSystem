@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Marks</title>
+
+    <style>
+        body{
+            margin:0;
+            font-family: Arial;
+            background:#2e2c38;
+        }
+
+        .box{
+            width:400px;
+            margin:80px auto;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align:center;
+            color:#333;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            background:#4CAF50;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#45a049;
+        }
+
+        .back{
+            display:block;
+            text-align:center;
+            margin-top:10px;
+            text-decoration:none;
+            color:#555;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Edit Marks</h2>
+
+    <form action="/update_mark/{{ mark[0] }}" method="POST">
+
+        <label>Student Name</label>
+        <input type="text" name="student_name" value="{{ mark[1] }}">
+
+        <label>Subject</label>
+        <input type="text" name="subject" value="{{ mark[2] }}">
+
+        <label>Marks</label>
+        <input type="number" name="marks" value="{{ mark[3] }}">
+
+        <button type="submit">Update Marks</button>
+
+    </form>
+
+    <a class="back" href="/marks_report">← Back to Report</a>
+
+</div>
+
+</body>
+</html>

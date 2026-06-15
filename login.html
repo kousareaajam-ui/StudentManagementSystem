@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-image:url("/static/college.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+        .login-box{
+           width:350px;
+    padding:30px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    text-align:center;
+    color:white;
+        }
+
+        h1{
+            margin-bottom:20px;
+            color:#333;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            margin:10px 0;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:16px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#667eea;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#4f63d2;
+        }
+
+        .logo{
+            font-size:50px;
+            margin-bottom:10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <div class="logo">🎓</div>
+
+        <h1>Admin Login</h1>
+
+        <form action="/login_check" method="POST">
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter Username"
+                required>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter Password"
+                required>
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

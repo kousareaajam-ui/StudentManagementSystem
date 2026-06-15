@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Marks Report</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f4f6f9;
+}
+
+h1{
+    text-align:center;
+}
+
+table{
+    width:80%;
+    margin:auto;
+    border-collapse:collapse;
+    background:white;
+}
+
+th{
+    background:green;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:10px;
+    text-align:center;
+    border:1px solid #ddd;
+}
+
+tr:nth-child(even){
+    background:#f2f2f2;
+}
+</style>
+
+</head>
+<body>
+
+<h1>📊 Student Marks Report</h1>
+
+<table>
+<tr>
+    <th>S.No</th>
+    <th>Student Name</th>
+    <th>Subject</th>
+    <th>Marks</th>
+</tr>
+
+{% for m in data %}
+<tr>
+    <td>{{ loop.index }}</td>
+    <td style="position:relative;">
+
+<details>
+
+    <summary style="
+        cursor:pointer;
+        font-weight:bold;
+        list-style:none;
+    ">
+        {{ m[1] }}
+    </summary>
+
+    <div style="
+        position:absolute;
+        top:-60px;
+        left:120px;
+        background:white;
+        border:1px solid #ddd;
+        border-radius:5px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.2);
+        min-width:100px;
+        z-index:999;
+    ">
+
+        <a href="/edit_mark/{{ m[0] }}"
+           style="
+           display:block;
+           padding:8px;
+           text-decoration:none;
+           color:black;">
+           Edit
+        </a>
+
+        <a href="/delete_mark/{{ m[0] }}"
+           onclick="return confirm('Delete this record?')"
+           style="
+           display:block;
+           padding:8px;
+           text-decoration:none;
+           color:red;">
+           Delete
+        </a>
+
+    </div>
+
+</details>
+
+</td>
+    <td>{{ m[2] }}</td>
+    <td>{{ m[3] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+</body>
+</html>
